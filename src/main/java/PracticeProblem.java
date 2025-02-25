@@ -2,7 +2,9 @@ public class PracticeProblem {
 
 	public static void main(String args[]) {
 
-		System.out.print(pyramid(5));
+		System.out.println(pyramid(3));
+		System.out.println(square(3));
+		System.out.println(hasLowercase("Hi"));
 	
 	}
 
@@ -53,4 +55,67 @@ public class PracticeProblem {
 		return pyra;
 
 	}
+
+	public static String square(int num) { //2
+
+		String squ = "";
+
+		if (num == 1) {
+			squ = "*";
+		}
+		else if (num > 1) {
+
+			for (int i = num; i > 0; i = i - 1) { //top line
+				squ = squ + "*";
+			}
+	
+			squ = squ + "\n";
+	
+			for (int i = num - 2; i > 0; i = i - 1) { //spaces for within square
+				squ = squ + "*";
+				int space = num - 2;
+	
+				while (space > 0) {
+					squ = squ + " ";
+					space = space - 1;
+				}
+	
+				squ = squ + "*";
+				squ = squ + "\n";
+			}
+	
+			for (int i = num; i > 0; i = i - 1) { //bottom line
+				squ = squ + "*";
+			}
+
+		}
+		else {
+			squ = "";
+		}
+
+		return squ;
+
+	}
+
+	public static boolean hasLowercase(String word) {
+
+		boolean lower = false;
+		int index = 0;
+
+		for (int i = (word.length() - 1); i >= 0; i = i - 1) {
+
+			if (Character.isLowerCase(word.charAt(index)) == true) {
+
+				lower = true;
+
+			}
+
+			index++;
+
+		}
+
+		return lower;
+
+	}
+
 }
